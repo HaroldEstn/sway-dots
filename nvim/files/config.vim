@@ -207,9 +207,13 @@ lua <<EOF
   })
 
   -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  require('lspconfig')['tsserver'].setup {}
+  require('lspconfig')['pyright'].setup {}
+  require('lspconfig')['kotlin_language_server'].setup {}
   require('lspconfig')['jdtls'].setup {
     capabilities = capabilities
   }
 EOF
+
 
